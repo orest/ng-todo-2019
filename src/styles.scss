@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+$mainColor:green;
+$defaultPadding:0px;
+
+.my-class{
+    background-color: $mainColor;
+    color: white;
+    padding: $defaultPadding
+}
+
+.another{
+    color: $mainColor
+}

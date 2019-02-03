@@ -1,0 +1,23 @@
+
+
+<div class="container">
+    <!-- <input type="text" [(ngModel)]="todoFilter" > -->
+    <input type="text" [(ngModel)]="filter" (keyup)="onFilterChange()">
+    <!-- <input type="text" [(ngModel)]="todoFilter"> -->
+    <hr>
+    <h2>Count:{{filteredTodos.length}}</h2>
+
+
+    <div class="text-right">
+        <button [hidden]="pageState=='all'" class="btn btn-success" (click)="showAll()">Show All </button>
+        <button [hidden]="pageState!=='all'" class="btn btn-success" (click)="showActive()">Show Active </button>
+    </div>
+
+    <ul class="list-group mt-4">
+        <li class="list-group-item list-group-item-primary " >Todos</li>
+        <li class="list-group-item" *ngFor="let todo of filteredTodos">
+            
+           <app-todo [todo]="todo" (todoDeleted)="onTodoDeleted($event)"></app-todo>
+        </li>
+    </ul>
+</div>

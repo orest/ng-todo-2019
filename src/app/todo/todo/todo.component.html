@@ -1,0 +1,33 @@
+<div *ngIf="!!todo">
+  <div [ngSwitch]="state">
+    <div *ngSwitchCase="'display'">
+
+      <div class="d-flex">
+        <div>
+          {{todo?.title}}
+        </div>
+
+        <div class="ml-auto">
+          <button class=" btn btn-success btn-sm mr-2 " (click)="switchState( 'edit') "><i class="fas fa-pencil-alt "></i></button>
+          <button class="btn btn-danger btn-sm " (click)="switchState( 'delete') "><i class="fas fa-trash-alt "></i></button>
+        </div>
+      </div>
+
+    </div>
+    <div *ngSwitchCase="'edit'">
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="todo.title">
+      </div>
+      <div class="text-right">
+        <button class="btn btn-success btn-sm mr-2" (click)="save()"> <i class="fas fa-save"></i> Save </button>
+        <button class="btn btn-danger btn-sm" (click)="cancel()"><i class="fas fa-times"></i> Cancel</button>
+      </div>
+    </div>
+    <div *ngSwitchCase="'delete'">
+      Are you sure you want to delete this item?
+      <button class="btn btn-success btn-sm mr-2" (click)="delete()">Yes, Delete it </button>
+      <button class="btn btn-danger btn-sm" (click)="cancel()">Cancel</button>
+    </div>
+    <div *ngSwitchDefault>output2</div>
+  </div>
+</div>
