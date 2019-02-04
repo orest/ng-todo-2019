@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "title": "Learn WebAPI. This one should be done",
+        "isCompleted": true,
+        "dueDate": "2019-01-14T00:00:00",
+        "minutesSpent": 180,
+        "priority": 1
+    },
+    {
+        "id": 2,
+        "title": "Learn WebAPI POST. With Update",
+        "isCompleted": false,
+        "dueDate": "2019-01-14T00:00:00",
+        "minutesSpent": 180,
+        "priority": 1
+    },
+    {
+        "id": 3,
+        "title": "Discover beauty of Angular 7",
+        "isCompleted": false,
+        "dueDate": "2019-01-14T00:00:00",
+        "minutesSpent": 10,
+        "priority": 2
+    },
+    {
+        "id": 4,
+        "title": "Learn Testing",
+        "isCompleted": false,
+        "dueDate": "2019-01-14T00:00:00",
+        "minutesSpent": 10,
+        "priority": 2
+    },
+    {
+        "id": 12,
+        "title": "Walk the dog",
+        "isCompleted": false,
+        "dueDate": "2019-01-14T00:00:00",
+        "priority": 0,
+        "minutesSpent": 0
+    }
+]

@@ -1,12 +1,20 @@
-$mainColor:green;
-$defaultPadding:0px;
+$primary:#007ac3;
 
-.my-class{
-    background-color: $mainColor;
-    color: white;
-    padding: $defaultPadding
+body {
+    background-color: #fafafa;
 }
-
-.another{
-    color: $mainColor
+.nyw-routes{
+	a{
+		cursor: pointer;
+		color: $primary
+	}
+}
+/* Login Page */
+.login-page { padding-top: 100px; max-width: 400px; margin: 0 auto; text-align: center; }
+.logo-link { margin-bottom: 50px; display: inline-block; }
+.login-page .form-control { height: 40px; font-size: 16px; }
+.login-page .form-group { margin-bottom: 25px; }
+.login-page .btn-primary { background-color: $primary; font-weight: bold; padding: 10px 50px; font-size: 18px; border: none; }
+.bg-primary, .btn-primary{
+	background-color: $primary!important 
 }

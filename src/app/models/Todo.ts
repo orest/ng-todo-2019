@@ -3,6 +3,6 @@ export class Todo {
     title: string;
     isCompleted: boolean;
     dueDate: Date;
-    minutesSpent: number;
+    minutesSpent?: number;
     priority: number;
 }
