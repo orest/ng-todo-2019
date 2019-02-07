@@ -1,8 +1,6 @@
-
-
 <div class="container">
     <!-- <input type="text" [(ngModel)]="todoFilter" > -->
-    
+
     <!-- <input type="text" [(ngModel)]="todoFilter"> -->
 
     <h2>Count:{{filteredTodos.length}}</h2>
@@ -10,20 +8,27 @@
 
     <div class="d-flex justify-content-between">
         <div>
-            
-                <input type="text" [(ngModel)]="filter" (keyup)="onFilterChange()" class="form-control">
+            <input type="text" [(ngModel)]="filter" (keyup)="onFilterChange()" class="form-control">
         </div>
         <div>
             <button [hidden]="pageState=='all'" class="btn btn-success" (click)="showAll()">Show All </button>
             <button [hidden]="pageState!=='all'" class="btn btn-success" (click)="showActive()">Show Active </button>
         </div>
-    
+
     </div>
-    
-    <ul class="list-group mt-2">
-        <li class="list-group-item list-group-item-primary " >Todos</li>
-        <li class="list-group-item" *ngFor="let todo of filteredTodos">            
-           <app-todo [todo]="todo" (todoDeleted)="onTodoDeleted($event)"></app-todo>
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-sm-8">
+            <ul class="list-group mt-2">
+                <li class="list-group-item list-group-item-primary ">Todos</li>
+                <li class="list-group-item" *ngFor="let todo of filteredTodos">
+                    <app-todo [todo]="todo" (todoDeleted)="onTodoDeleted($event)"></app-todo>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <app-create-todo (saveTodo)="parentSaveTodo($event)" ></app-create-todo>
+        </div>
+    </div>
+
+
 </div>

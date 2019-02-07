@@ -10,6 +10,7 @@ import { TodoListComponent } from './todo/todo-list.component';
 import { TodoComponent } from './todo/todo/todo.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CreateTodoComponent } from './todo/create-todo/create-todo.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     TodoListComponent,
     TodoComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CreateTodoComponent,
+
   ],
   imports: [
     BrowserModule,

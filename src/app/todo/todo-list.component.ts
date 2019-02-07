@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Todo } from '../models/Todo';
 import { TodoSerivceService } from './todo-serivce.service';
 import { TodoLocalFileService } from './todo-local-file.service';
+import { TodoStaticService } from './todo-static.service';
 
 @Component({
     selector: "todo-list",
@@ -15,45 +16,30 @@ export class TodoListComponent {
     filter = ''
     filteredTodos = []
     todo: Todo;
-    input1: number = null;
-    input2: number = 0;
-    result: number = 0;
+
     operator: string
     price = 345345.455
     sales = 0.34
 
-    todos: Todo[] ;
+    todos: Todo[];
 
-    constructor(private todoSerivce: TodoLocalFileService, ) {
+    constructor(private todoSerivce: TodoStaticService) {
 
     }
     ngOnInit() {
         //this.filteredTodos = this.todos.slice(0)
-        //this.todos = this.todoSerivce.getAllTodos()
-        
-        this.todoSerivce.getAllTodos().subscribe(data=>{
-            this.todos =data;
-            this.onFilterChange()
-        })
-        
+        this.todos = this.todoSerivce.getAllTodos();
+        this.onFilterChange();
+
+        // this.todoSerivce.getAllTodos().subscribe(data => {
+        //     this.todos = data;
+        //     this.onFilterChange()
+        // })
+
         this.todo = new Todo();
-        
+
     }
 
-    addNumbers() {
-        this.result = Number(this.input1) + Number(this.input2)
-    }
-    addToCounter() {
-        this.counter += 1;
-    }
-
-    calculate() {
-        if (this.operator === "+") {
-            this.addNumbers()
-        } else if (this.operator === "-") {
-            this.result = Number(this.input1) - Number(this.input2)
-        }
-    }
     showAll() {
         this.pageState = 'all'
         this.onFilterChange();
@@ -112,8 +98,16 @@ export class TodoListComponent {
     }
 
     onTodoDeleted(todo) {
-        console.log(todo)
+        let index = this.todos.findIndex(p => p.id == todo.id);
+
+        this.todos.splice(index, 1);
+        this.onFilterChange();
     }
 
+    parentSaveTodo(todo) {
+        console.log("parentSaveTodo")
 
+        this.todos.push(todo);
+        this.onFilterChange();
+    }
 } 

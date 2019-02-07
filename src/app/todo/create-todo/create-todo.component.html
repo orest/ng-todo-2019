@@ -1,0 +1,10 @@
+<ul class="list-group mt-2">
+  <li class="list-group-item list-group-item-primary ">Create new Todos</li>
+  <li class="list-group-item ">
+    <textarea class="form-control" [(ngModel)]="todo.title" rows="6"></textarea>
+    <button class="btn btn-success btn-block mt-2" (click)="onSaveClick()">Save</button>
+  </li>
+
+</ul>
+
+{{todo|json}}
