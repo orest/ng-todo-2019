@@ -8,6 +8,7 @@
         </div>
 
         <div class="ml-auto">
+         <a  [routerLink]="['/todos', todo.id]"  routerLinkActive="router-link-active">Edit</a>
           <button class=" btn btn-success btn-sm mr-2 " (click)="switchState( 'edit') "><i class="fas fa-pencil-alt "></i></button>
           <button class="btn btn-danger btn-sm " (click)="switchState( 'delete') "><i class="fas fa-trash-alt "></i></button>
         </div>

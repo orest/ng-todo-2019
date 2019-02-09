@@ -28,16 +28,20 @@ export class TodoListComponent {
     }
     ngOnInit() {
         //this.filteredTodos = this.todos.slice(0)
-        this.todos = this.todoSerivce.getAllTodos();
-        this.onFilterChange();
-
-        // this.todoSerivce.getAllTodos().subscribe(data => {
-        //     this.todos = data;
-        //     this.onFilterChange()
-        // })
+        //this.todos = this.todoSerivce.getTodos();
+        //this.onFilterChange();
+        this.refresh();
 
         this.todo = new Todo();
 
+    }
+
+    refresh(){
+        this.todoSerivce.getTodos().subscribe(data => {
+            console.log(data)
+            this.todos = data;
+            this.onFilterChange()
+        }, error => console.log(error))
     }
 
     showAll() {
@@ -107,7 +111,11 @@ export class TodoListComponent {
     parentSaveTodo(todo) {
         console.log("parentSaveTodo")
 
-        this.todos.push(todo);
-        this.onFilterChange();
+        this.todoSerivce.createTodo(todo).subscribe(newTodo=>{
+            //this.todos.push(newTodo);
+            this.refresh();
+        });
+        //this.todos.push(todo);
+        //this.onFilterChange();
     }
 } 

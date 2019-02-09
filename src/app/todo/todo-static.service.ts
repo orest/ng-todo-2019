@@ -1,14 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Todo } from '../models/Todo';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoStaticService {
+  serverUrl = "/api/todos";
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getAllTodos(){
+  getTodos(): Observable<Todo[]> {
+    return this.http.get<Todo[]>(this.serverUrl).pipe(
+      tap(p => console.log(p))
+    );
+  }
+
+  createTodo(todo) {
+    return this.http.post<Todo>(this.serverUrl, todo).pipe(
+      tap(p => console.log(p))
+    );
+  }
+
+  getAllTodos() {
     return this.todos;
   }
 
